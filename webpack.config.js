@@ -1,38 +1,8 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const commonConfig = require('./webpack-builder/webpack.common');
+const webpackMerge = require('webpack-merge');
 
-module.exports = {
-  entry: ['webpack-hot-middleware/client', `${__dirname}/src/app.js`],
-  output: {
-    path: `${__dirname}/dist/`,
-    filename: 'bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        enforce: 'pre',
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader'
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json']
-  },
-  stats: {
-    colors: true,
-    reasons: true,
-    chunks: true
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: `${__dirname}/src/index.html`
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+module.exports = (env = { env: 'dev' }) => {
+  const envConfig = require(`./webpack-builder/webpack.${env.env}.js`); // eslint-disable-line
+  const mergedConfig = webpackMerge(commonConfig, envConfig);
+  return mergedConfig;
 };

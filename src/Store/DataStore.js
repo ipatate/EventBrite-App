@@ -1,8 +1,9 @@
+// @flow
 import { observable } from 'mobx';
 
 class DataStore {
-  @observable test = 'lol';
-  @observable events;
+  @observable test: string = 'lol';
+  @observable events: Array<{}>;
 }
 
 const store = new DataStore();

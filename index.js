@@ -1,12 +1,12 @@
 // @flow
 const https = require('https');
 const path = require('path');
-const express = require('express');
-const devcert = require('devcert-with-localhost').default;
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('./webpack.config.js');
+const express = require('express'); //eslint-disable-line
+const devcert = require('devcert-with-localhost').default; //eslint-disable-line
+const webpack = require('webpack'); //eslint-disable-line
+const webpackDevMiddleware = require('webpack-dev-middleware'); //eslint-disable-line
+const webpackHotMiddleware = require('webpack-hot-middleware'); //eslint-disable-line
+const config = require('./webpack.config.js')();
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const HTML_FILE = path.join(DIST_DIR, 'index.html');

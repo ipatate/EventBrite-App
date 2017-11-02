@@ -20,5 +20,9 @@
     "es6": true,
     "node": true,
     "jest": true
+  },
+  "globals": {
+    "$": true,
+    "jQuery": true
   }
 }
