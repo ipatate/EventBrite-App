@@ -5,7 +5,7 @@ module.exports = {
   entry: ['webpack-hot-middleware/client', `${__dirname}/src/app.js`],
   output: {
     path: `${__dirname}/dist/`,
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -13,26 +13,26 @@ module.exports = {
         enforce: 'pre',
         test: /\.jsx?$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-      },
-    ],
+        loader: 'babel-loader'
+      }
+    ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json']
   },
   stats: {
     colors: true,
     reasons: true,
-    chunks: true,
+    chunks: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${__dirname}/src/index.html`,
+      template: `${__dirname}/src/index.html`
     }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
