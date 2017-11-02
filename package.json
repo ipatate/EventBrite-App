@@ -6,8 +6,7 @@
   "scripts": {
     "build": "npm run webpack -- --env.env=prod",
     "dev": "rm -rf dist/ && node index.js",
-    "format":
-      "prettier --write --single-quote --print-width=120 --tab-width=2 \"src/**/*.{js,jsx}\" ",
+    "format": "prettier --write --single-quote --print-width=120 --tab-width=2 \"src/**/*.{js,jsx}\" ",
     "clean": "rm -rf web/dist/",
     "test": "NODE_ENV=test node_modules/.bin/jest",
     "lint": "eslint src/**/*.{js,jsx} --quiet",
@@ -17,7 +16,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json}": ["prettier --write", "git add"]
+    "*.{js,json}": ["npm run format", "git add"]
   },
   "author": "faramaz patrick",
   "license": "ISC",
