@@ -13,6 +13,7 @@ projectFilesBackup
 .dist
 .tmp
 
+config/config.js
 dist/
 
 # ignore all custom json files for config
