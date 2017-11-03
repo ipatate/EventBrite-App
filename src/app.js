@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
+import { BrowserRouter } from 'react-router-dom';
 import dataStore from './Store/DataStore';
 import Main from './Components/Main';
 
@@ -14,9 +15,11 @@ const store = {
 };
 
 ReactDOM.render(
-  <Provider {...store}>
-    <Main dataStore={store.dataStore} />
-  </Provider>,
+  <BrowserRouter>
+    <Provider {...store}>
+      <Main />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('app')
 );
 

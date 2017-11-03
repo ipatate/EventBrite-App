@@ -1,22 +1,17 @@
 // @flow
-import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
-import ListElement from './ListElement';
-@inject('dataStore')
-@observer
-export class Main extends Component<{
-  dataStore: Store
-}> {
-  componentDidMount() {
-    this.props.dataStore.loadEvents('annecy');
-  }
-  render() {
-    return (
-      <ul className="list-group">
-        {this.props.dataStore.events.map(event => <ListElement key={event.id} event={event} />)}
-      </ul>
-    );
-  }
-}
+import React from 'react';
+import ScrollMemory from 'react-router-scroll-memory';
+import { Switch, Route } from 'react-router-dom';
+
+import List from './List';
+
+export const Main = () => (
+  <div>
+    <ScrollMemory />
+    <Switch>
+      <Route exact path="/" component={List} />
+    </Switch>
+  </div>
+);
 
 export default Main;

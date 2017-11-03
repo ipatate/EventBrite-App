@@ -31,6 +31,8 @@
     "popper.js": "^1.12.6",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-scroll-memory": "^1.0.0",
     "tether": "^1.4.0"
   },
   "devDependencies": {
