@@ -1,5 +1,6 @@
 [ignore]
 <PROJECT_ROOT>/index.js
+<PROJECT_ROOT>/webpack-builder/*
 <PROJECT_ROOT>/__tests__/.*
 <PROJECT_ROOT>/node_modules/babel-plugin-flow-react-proptypes/*.
 <PROJECT_ROOT>/node_modules/stylelint/*.
@@ -9,3 +10,8 @@
 [options]
 esproposal.decorators=ignore
 module.ignore_non_literal_requires=true
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.css
+module.file_ext=.scss

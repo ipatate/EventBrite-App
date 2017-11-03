@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
@@ -6,7 +7,7 @@ import Main from './Components/Main';
 
 import './Styles/bootstrap';
 // style css for webpack builder
-import './Styles/main.scss';
+import './Styles/init.scss';
 
 const store = {
   dataStore
@@ -14,7 +15,7 @@ const store = {
 
 ReactDOM.render(
   <Provider {...store}>
-    <Main />
+    <Main dataStore={store.dataStore} />
   </Provider>,
   document.getElementById('app')
 );

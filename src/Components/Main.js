@@ -1,26 +1,19 @@
-import React from 'react';
-import moment from 'moment';
+// @flow
+import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-
+import ListElement from './ListElement';
 @inject('dataStore')
 @observer
-export class Main extends React.Component {
+export class Main extends Component<{
+  dataStore: Store
+}> {
   componentDidMount() {
     this.props.dataStore.loadEvents('annecy');
   }
   render() {
-    function createMarkup(html) {
-      return { __html: html };
-    }
     return (
-      <ul>
-        {this.props.dataStore.events.map(event => (
-          <li key={event.id}>
-            <h3>{event.name.text}</h3>
-            <b>{moment(event.start.local).format('DD MM YYYY, H:mm:ss')}</b>
-            <p dangerouslySetInnerHTML={createMarkup(event.description.html)} />
-          </li>
-        ))}
+      <ul className="list-group">
+        {this.props.dataStore.events.map(event => <ListElement key={event.id} event={event} />)}
       </ul>
     );
   }

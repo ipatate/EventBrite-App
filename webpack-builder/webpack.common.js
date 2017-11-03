@@ -1,25 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //eslint-disable-line
-
 const webpack = require('webpack'); // eslint-disable-line
 const commonPath = require('./common-paths');
 
 const config = {
   output: {
     filename: 'bundle.js',
-    path: commonPath.outputPath,
+    path: commonPath.outputPath
   },
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
-      },
-      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
       {
         test: /\.png/,
@@ -27,34 +20,34 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              limit: 10000,
-            },
-          },
-        ],
+              limit: 10000
+            }
+          }
+        ]
       },
       {
         test: /bootstrap\/dist\/js\/umd\//,
-        use: 'imports-loader?jQuery=jquery',
-      },
-    ],
+        use: 'imports-loader?jQuery=jquery'
+      }
+    ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json']
   },
   stats: {
     colors: true,
     reasons: true,
-    chunks: true,
+    chunks: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${__dirname}/../src/index.html`,
+      template: `${__dirname}/../src/index.html`
     }),
     new webpack.ProgressPlugin(),
     new webpack.ProvidePlugin({
       Popper: ['popper.js', 'default'],
       $: 'jquery',
-      jQuery: 'jquery',
+      jQuery: 'jquery'
       // uncomment used components, don't forget uncomment components in assets/js/boostrap.js file
       // Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
       // Alert: 'exports-loader?Alert!bootstrap/js/dist/alert',
@@ -67,8 +60,8 @@ const config = {
       // Scrollspy: 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy',
       // Tab: 'exports-loader?Tab!bootstrap/js/dist/tab',
       // Util: 'exports-loader?Util!bootstrap/js/dist/util',
-    }),
-  ],
+    })
+  ]
 };
 
 module.exports = config;
