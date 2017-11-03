@@ -4,6 +4,8 @@
 <PROJECT_ROOT>/__tests__/.*
 <PROJECT_ROOT>/node_modules/babel-plugin-flow-react-proptypes/*.
 <PROJECT_ROOT>/node_modules/stylelint/*.
+<PROJECT_ROOT>/node_modules/package-lock.json
+<PROJECT_ROOT>/node_modules/package.json
 [include]
 <PROJECT_ROOT>/src/*
 [libs]
